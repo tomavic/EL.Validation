@@ -1,7 +1,7 @@
 Applied example for validation with jquery 
 
 
-you can check demo from **[here]**(https://tomavic.github.io/validation-with-jQuery/)
+you can check demo from [here](https://tomavic.github.io/validation-with-jQuery/)
 ```markdown
 Syntax highlighted code block
 
