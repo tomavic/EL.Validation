@@ -17,7 +17,8 @@ $(document).ready(function() {
             number: {
                 required: true,
                 maxValue: true,
-                positive: true
+                positive: true,
+                integer: true
             }
         },
         messages: {
@@ -34,7 +35,8 @@ $(document).ready(function() {
             number: {
                 required: "Ma3lsh Password required",
                 maxValue: "ma yenf3sh yezed 3n 5 walahi",
-                positive: "Ma yenf3sh walahi yeb2a negative"
+                positive: "Ma yenf3sh walahi yeb2a negative",
+                integer: "Number must be integer"
             }
         },
         submitHandler: function() {

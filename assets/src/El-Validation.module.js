@@ -86,6 +86,9 @@ El.Validation = (function(window) {
             return this.optional(element) || /^[A-Za-z0-9](([_\.\-]?[a-zA-Z0-9]+)*)@([A-Za-z0-9]+)(([\.\-]?[a-zA-Z0-9]+)*)\.([A-Za-z]{2,})$/.test(value);
         });
 
+        $.validator.addMethod('integer', function(value, element, options) {
+            return this.optional(element) || /^\d+$/.test(value);
+        });
     }
     /**
      * Function to create a new instance of the jQuery validation
