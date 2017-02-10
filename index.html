@@ -1,148 +1,77 @@
 <html>
-	<head>
-		<meta charset="utf-8" />
-		<meta name="format-detection" content="telephone=no" />
-		<meta name="msapplication-tap-highlight" content="no" />
-		<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
 
-		<title>Tolet Help</title>
-		
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css">
-		
-	</head>
+<head>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
 
-	<style>
-		body {
-			padding: 15px;
-		}
-		.input-field span {
-			font-size:11px;
-			line-height: 12px;
-			font-family: "Roboto", sans-serif;
-			display: block;
-			position: absolute;
-			top: 60px;
-			opacity: 0;
-			transition: .2s opacity ease-out, .2s color ease-out;
-		}
-		.input-field span.error-label {
-			color: #F44336;
-			opacity: 1;
-		}
-		.input-field span.success-label {
-			color: #4CAF50;
-			opacity: 1;
-		}	
-		.input-field input.success-label {
-		    border-bottom: 1px solid #4CAF50;
-			box-shadow: 0 1px 0 0 #4CAF50;
-		}
-		.input-field input.error-label {
-		    border-bottom: 1px solid #F44336;
-			box-shadow: 0 1px 0 0 #F44336;
-		}		
-	</style>
-	
-	
-	<body>
-	
-		<form class="cmxform" id="commentForm" method="get" action="">
-			
-			<div class="row">
-				<div class="input-field col s12">
-				  <input id="first_name" name="first_name" type="text" class="validate" />
-				  <label for="first_name">Name (required, at least 2 characters)</label>
-				</div>
-			</div>
-			
-			<div class="row">
-				<div class="input-field col s12">
-				  <input id="email" name="email" type="email" class="validate"/>
-				  <label for="email">E-Mail (required)</label>
-				</div>
-			</div>
-			
-			<div class="row">
-				<div class="input-field col s12">
-				  <input id="password" name="email" type="password" class="validate">
-				  <label for="password">Password</label>
-				</div>
-			</div>
-			
-			<div class="row">
-				<div class="input-field col s12">
-				  <input id="number" name="number" type="number" class="validate" data-max-value="5">
-				  <label for="number">Code</label>
-				</div>
-			</div>	
-			
-			<div class="row">
-				<div class="input-field col s12">
-					<button class="btn btn-large waves-effect submit">Submit</button>
-				</div>
-			</div>
+    <title>Él Validation</title>
 
-		</form>
-	
-	
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-	<script src="jquery.validate.js"></script>
-	<script src="additional-methods.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
-	<script>
-	var submithandlerfn = function(){
-		alert("Bueno!");
-	}
-	var submitRules = {
-		first_name: {
-			required: true
-		},
-		email: {
-			required: true
-		},
-		password : {
-			required: true
-		},
-		number : {
-			required: true,
-			maxValue: true,
-			positive: true
-		}
-	};
-	var submitErrorMessages = {
-		first_name : {
-			required : "Ma3lsh bs da required",
-		},
-		email : {
-			required : "Ma3lsh ba2a bs da bardo required"
-		},
-		password : {
-			required : "Ma3lsh Password required"
-		},
-		number : {
-			required : "Ma3lsh Password required",
-			maxValue : "ma yenf3sh yezed 3n 5 walahi",
-			positive: "Ma yenf3sh walahi yeb2a negative"
-		}
-	};
-	$("#commentForm").validate({
-		debug: true,
-		submitHandler: submithandlerfn,
-		rules: submitRules,
-		messages:submitErrorMessages,
-		errorClass: "error-label",
-		validClass: "success-label",
-		errorElement: "span"
-	});
-	
-	$.validator.addMethod("maxValue", function(value, element, options) {
-		var maximum = $(element).attr('data-max-value');
-		return value <= maximum;
-	});	
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
 
-	$.validator.addMethod('positive', function(value, element, options) {
-		return value >= 0;
-	});	
-	</script>
-	</body>
+<body>
+    <header>
+        <h2>Él Validation</h2>
+    </header>
+
+    <div class="container">
+
+        <form class="cmxform" id="commentForm">
+
+            <div class="row">
+                <div class="input-field col s12">
+                    <input id="first_name" name="first_name" type="text" class="validate" />
+                    <label for="first_name">Name</label>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="input-field col s12">
+                    <input id="email" name="email" type="email" class="validate" />
+                    <label for="email">E-Mail</label>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="input-field col s12">
+                    <input id="password" name="password" type="password" class="validate">
+                    <label for="password">Password</label>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="input-field col s12">
+                    <input id="number" name="number" type="number" class="validate" data-max-value="5">
+                    <label for="number">Code</label>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="input-field col s12">
+                    <button type="submit" name="submit" class="btn btn-large waves-effect submit  blue darken-3 z-depth-3">Validate!</button>
+                </div>
+            </div>
+
+        </form>
+    </div>
+
+    <footer>
+        <h3>Made with ♥ by ▁ ▂ ▃ ▅ ▇ T O o m a ▇ ▅ ▃ ▂ ▁ </h3>
+    </footer>
+    <!-- Latest version of jquery and Materialize libs -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
+
+    <!-- Validation Library files -->
+    <script src="assets/lib/jquery.validate.js"></script>
+    <script src="assets/lib/additional-methods.js"></script>
+
+    <script src="assets/src/El-Validation.module.js"></script>
+    <script src="assets/js/index.js">
+    </script>
+</body>
+
 </html>

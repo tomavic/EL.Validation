@@ -1,0 +1,115 @@
+   body {
+       padding: 15px;
+   }
+   
+   header,
+   footer {
+       text-align: center
+   }
+   
+   header h2 {
+       font-weight: 800;
+       color: #f54;
+   }
+   
+   footer h3 {
+       font-size: 14px;
+       font-weight: 800;
+   }
+   
+   .input-field span {
+       font-size: 12px;
+       line-height: 18px;
+       text-indent: 5px;
+       font-family: "Roboto", sans-serif;
+       display: block;
+       position: absolute;
+       top: 60px;
+       opacity: 0;
+       /*Custom shape*/
+       padding: 10px;
+       width: 100%;
+       z-index: 99;
+       border-color: #ef7e75;
+       background-color: #ef7e75;
+       transition: .2s opacity ease-out, .2s color ease-out;
+   }
+   
+   .input-field span:after,
+   .input-field span:before {
+       bottom: 100%;
+       left: 50%;
+       border: solid transparent;
+       content: " ";
+       height: 0;
+       width: 0;
+       position: absolute;
+       pointer-events: none;
+   }
+   
+   .input-field span:after {
+       border-color: rgba(0, 0, 0, 0);
+       border-bottom-color: #ef7e75;
+       border-width: 10px;
+       left: 10px;
+   }
+   
+   .input-field span.error-label {
+       color: #fff;
+       opacity: 1;
+   }
+   
+   .input-field span.success-label {
+       color: #4CAF50;
+       opacity: 1;
+   }
+   
+   .input-field input.success-label {
+       border-bottom: 1px solid #4CAF50;
+       box-shadow: 0 1px 0 0 #4CAF50;
+   }
+   
+   .input-field input.error-label {
+       border-bottom: 1px solid #F44336;
+       box-shadow: 0 1px 0 0 #F44336;
+   }
+   
+   .input-field button.submit {
+       width: 100%;
+   }
+   /***
+    * Overiding Original theme color 
+    *********************************/
+   
+   input:not([type]):focus:not([readonly]),
+   input[type=text]:focus:not([readonly]),
+   input[type=password]:focus:not([readonly]),
+   input[type=email]:focus:not([readonly]),
+   input[type=url]:focus:not([readonly]),
+   input[type=time]:focus:not([readonly]),
+   input[type=date]:focus:not([readonly]),
+   input[type=datetime]:focus:not([readonly]),
+   input[type=datetime-local]:focus:not([readonly]),
+   input[type=tel]:focus:not([readonly]),
+   input[type=number]:focus:not([readonly]),
+   input[type=search]:focus:not([readonly]),
+   textarea.materialize-textarea:focus:not([readonly]) {
+       border-bottom: 1px solid #1565c0;
+       box-shadow: 0 1px 0 0 #1565c0;
+   }
+   
+   input:not([type]):focus:not([readonly])+label,
+   input[type=text]:focus:not([readonly])+label,
+   input[type=password]:focus:not([readonly])+label,
+   input[type=email]:focus:not([readonly])+label,
+   input[type=url]:focus:not([readonly])+label,
+   input[type=time]:focus:not([readonly])+label,
+   input[type=date]:focus:not([readonly])+label,
+   input[type=datetime]:focus:not([readonly])+label,
+   input[type=datetime-local]:focus:not([readonly])+label,
+   input[type=tel]:focus:not([readonly])+label,
+   input[type=number]:focus:not([readonly])+label,
+   input[type=search]:focus:not([readonly])+label,
+   textarea.materialize-textarea:focus:not([readonly])+label {
+       color: #1565c0
+   }
