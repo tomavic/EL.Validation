@@ -5,6 +5,21 @@ El.Validation = (function(window) {
     /** @private */
     var libraryConfigs = defaultLibraryConfigs();
 
+
+    /**
+     * Defining a default behavior for the jquery validation plugin
+     * @memberof Validation
+     * @function defaultLibraryConfigs
+     * @returns {object} - Default configs to be used, this configs can be override
+     */
+    function defaultLibraryConfigs() {
+        return {
+            debug: true,
+            errorClass: "error-label",
+            errorElement: "span"
+        };
+    }
+
     /**
      * Getting the configs to set the jquery validation plugin
      * @memberof Validation
@@ -23,22 +38,6 @@ El.Validation = (function(window) {
      */
     function setLibraryConfigs(data) {
         libraryConfigs = data;
-    }
-
-
-    /**
-     * Defining a default behavior for the jquery validation plugin
-     * @memberof Validation
-     * @function defaultLibraryConfigs
-     * @returns {object} - Default configs to be used, this configs can be override
-     */
-    function defaultLibraryConfigs() {
-        return {
-            debug: true,
-            errorClass: "error-label",
-            validClass: "success-label",
-            errorElement: "span"
-        };
     }
 
     /**

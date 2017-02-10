@@ -5,7 +5,6 @@ $(document).ready(function() {
     var elconfig = {
         rules: {
             first_name: {
-                validEmail: true,
                 required: true
             },
             email: {
@@ -23,8 +22,7 @@ $(document).ready(function() {
         },
         messages: {
             first_name: {
-                validEmail: "Special characters are not allowed",
-                required: "Ma3lsh bs da required",
+                required: "Ma3lsh bs da required"
             },
             email: {
                 validEmail: "Special characters are not allowed",

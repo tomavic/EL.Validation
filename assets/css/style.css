@@ -1,10 +1,20 @@
    body {
        padding: 15px;
+       overflow-x: hidden !important;
    }
    
-   header,
-   footer {
+   header {
        text-align: center
+   }
+   
+   footer {
+       padding: 15px;
+       width: 105%;
+       position: relative;
+       left: -16px;
+       float: left;
+       background-color: #f54;
+       text-align: center;
    }
    
    header h2 {
@@ -13,12 +23,19 @@
    }
    
    footer h3 {
+       margin: 0;
        font-size: 14px;
        font-weight: 800;
+       color: #fff;
+   }
+   
+   footer i {
+       font-style: normal;
+       text-align: center
    }
    
    .input-field span {
-       font-size: 12px;
+       font-size: .8rem;
        line-height: 18px;
        text-indent: 5px;
        font-family: "Roboto", sans-serif;
@@ -27,16 +44,16 @@
        top: 60px;
        opacity: 0;
        /*Custom shape*/
-       padding: 10px;
+       padding: 7px;
        width: 100%;
        z-index: 99;
-       border-color: #ef7e75;
-       background-color: #ef7e75;
+       border-color: rgba(247, 86, 73, 0.42);
+       background-color: rgba(247, 86, 73, 0.42);
        transition: .2s opacity ease-out, .2s color ease-out;
    }
    
-   .input-field span:after,
-   .input-field span:before {
+   .input-field span.error-label:after,
+   .input-field span.error-label:before {
        bottom: 100%;
        left: 50%;
        border: solid transparent;
@@ -47,20 +64,15 @@
        pointer-events: none;
    }
    
-   .input-field span:after {
+   .input-field span.error-label:after {
        border-color: rgba(0, 0, 0, 0);
-       border-bottom-color: #ef7e75;
+       border-bottom-color: rgba(247, 86, 73, 0.42);
        border-width: 10px;
        left: 10px;
    }
    
    .input-field span.error-label {
-       color: #fff;
-       opacity: 1;
-   }
-   
-   .input-field span.success-label {
-       color: #4CAF50;
+       color: #F44336;
        opacity: 1;
    }
    
@@ -112,4 +124,13 @@
    input[type=search]:focus:not([readonly])+label,
    textarea.materialize-textarea:focus:not([readonly])+label {
        color: #1565c0
+   }
+   
+   .row {
+       margin-bottom: 25px;
+       margin-top: 25px;
+   }
+   
+   .container {
+       margin-bottom: 25px;
    }
