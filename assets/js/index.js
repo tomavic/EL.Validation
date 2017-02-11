@@ -5,7 +5,8 @@ $(document).ready(function() {
     var elconfig = {
         rules: {
             first_name: {
-                required: true
+                required: true,
+                string: true
             },
             email: {
                 validEmail: true,
@@ -19,11 +20,16 @@ $(document).ready(function() {
                 maxValue: true,
                 positive: true,
                 integer: true
+            },
+            mobileNumber: {
+                required: true,
+                indianMobNumber: true
             }
         },
         messages: {
             first_name: {
-                required: "Ma3lsh bs da required"
+                required: "Ma3lsh bs da required",
+                string: "accepts only Alphabetic letters"
             },
             email: {
                 validEmail: "Special characters are not allowed",
@@ -37,6 +43,10 @@ $(document).ready(function() {
                 maxValue: "ma yenf3sh yezed 3n 5 walahi",
                 positive: "Ma yenf3sh walahi yeb2a negative",
                 integer: "Number must be integer"
+            },
+            mobileNumber: {
+                required: "Ma3lsh bs da required",
+                indianMobNumber: "Indian mobile number only accepted here"
             }
         },
         submitHandler: function() {

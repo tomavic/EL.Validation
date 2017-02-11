@@ -44,6 +44,7 @@
        top: 60px;
        opacity: 0;
        /*Custom shape*/
+       border-radius: 2px;
        padding: 7px;
        width: 100%;
        z-index: 99;

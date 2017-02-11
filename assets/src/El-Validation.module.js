@@ -89,7 +89,16 @@ El.Validation = (function(window) {
         $.validator.addMethod('integer', function(value, element, options) {
             return this.optional(element) || /^\d+$/.test(value);
         });
+
+        $.validator.addMethod('string', function(value, element, options) {
+            return this.optional(element) || /^[a-zA-Z]*$/g.test(value);
+        });
+
+        $.validator.addMethod('indianMobNumber', function(value, element, options) {
+            return this.optional(element) || /^(?:(?:\+|0{0,2})91(\s*[\-]\s*)?|[0]?)?[789]\d{9}$/.test(value);
+        });
     }
+
     /**
      * Function to create a new instance of the jQuery validation
      * @memberof Validation
