@@ -1,6 +1,6 @@
 var El = El || {};
 
-El.Validation = (function(window) {
+El.Validation = (function() {
 
     /** @private */
     var libraryConfigs = defaultLibraryConfigs();
@@ -12,7 +12,7 @@ El.Validation = (function(window) {
      * @function defaultLibraryConfigs
      * @returns {object} - Default configs to be used, this configs can be override
      */
-    function defaultLibraryConfigs() {
+    var defaultLibraryConfigs = function () {
         return {
             debug: true,
             errorClass: "error-label",
@@ -55,48 +55,27 @@ El.Validation = (function(window) {
     /**
      * Checking if the right attributes were set when the init was called
      * @memberof Validation
-     * @function checkParams
-     * @param {object} - jQuery object containing a form
-     * @throws If the form is null or if jQuery wasn't called
-     */
-    function checkParams(form) {
-        if (typeof form !== 'object')
-            throw ('You must pass a valid form as the first attribute');
-        else if (form instanceof jQuery === false)
-            throw ('You must pass a jQuery object in order to validate the form');
-    }
-
-    /**
-     * Checking if the right attributes were set when the init was called
-     * @memberof Validation
      * @function loadCustomValidationMethods
      */
     function loadCustomValidationMethods() {
         //Additional methods for special validation
-        $.validator.addMethod("maxValue", function(value, element, options) {
-            var maximum = $(element).attr('data-max-value');
-            return value <= maximum;
-        });
 
-        $.validator.addMethod('positive', function(value, element, options) {
+        $.validator.addMethod('positive', function(value) {
             return value >= 0;
         });
 
-        $.validator.addMethod('validEmail', function(value, element, options) {
+        $.validator.addMethod('email', function(value, element) {
             return this.optional(element) || /^[A-Za-z0-9](([_\.\-]?[a-zA-Z0-9]+)*)@([A-Za-z0-9]+)(([\.\-]?[a-zA-Z0-9]+)*)\.([A-Za-z]{2,})$/.test(value);
         });
 
-        $.validator.addMethod('integer', function(value, element, options) {
+        $.validator.addMethod('integer', function(value, element) {
             return this.optional(element) || /^\d+$/.test(value);
         });
 
-        $.validator.addMethod('string', function(value, element, options) {
+        $.validator.addMethod('string', function(value, element) {
             return this.optional(element) || /^[a-zA-Z]*$/g.test(value);
         });
 
-        $.validator.addMethod('indianMobNumber', function(value, element, options) {
-            return this.optional(element) || /^(?:(?:\+|0{0,2})91(\s*[\-]\s*)?|[0]?)?[789]\d{9}$/.test(value);
-        });
     }
 
     /**
@@ -109,10 +88,9 @@ El.Validation = (function(window) {
      * MinkFoodiee.validation.init($('#myForm'), { rules: { name: "required" }, email: "required" })
      */
     function init(form, configs) {
-        var config;
         try {
             loadCustomValidationMethods();
-            for (config in configs) {
+            for (var config in configs) {
                 addLibraryConfig({
                     key: config,
                     value: configs[config]
